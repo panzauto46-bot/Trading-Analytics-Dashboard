@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(git rm postcss.config.mjs tailwind.config.ts next-env.d.ts next.config.mjs restore.ps1 -r old-recovery)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfix: Remove old Next.js config files that break Vercel build\n\nRemove postcss.config.mjs, tailwind.config.ts, next-env.d.ts,\nnext.config.mjs, restore.ps1, and old-recovery directory.\nThese are leftover from the Next.js migration to Vite and cause\nPostCSS plugin loading errors during Vercel deployment.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }
